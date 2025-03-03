@@ -1,12 +1,71 @@
-body {
-  background-color: violet;
-}
-h1 {
-  color: black;
-  text-align: center;
-}
-p {
-  font: 200 ;
-  color: brown;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* box-sizing: border-box; é uma propriedade CSS que determina como o tamanho total de um elemento é calculado. */
 }
 
+body {
+  background: url(./assets/assets/bg-mobile.jpg) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "inter", sans-serif;
+  color: white;
+}
+
+#container {
+  /* border: 1px solid red; /* borda para visualização */
+  width: 360px; /* Largura */
+  margin: 56px auto 0px; /* Margem */
+  padding: 0 24px; /* Espaçamento interno */
+}
+
+#profile {
+  text-align: center; /*Centraliza o texto*/
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+  /* IMG tem dysplay padrão inline, então para centralizar é necessario colocar display block caso não determine o profile text-align como center */
+  margin: auto;
+}
+
+#profile p {
+  font-weight: 500; /* tamanho da fonte */
+  line-height: 24px; /* altura da linha*/
+  margin-top: 8px;
+}
+
+/* Links */
+ul {
+  list-style: none; /* Remove a bolinha da lista */
+  display: flex; /* Faz com que os elementos fiquem em linha */
+  flex-direction: column; /* Faz com que os elementos fiquem em coluna */
+  gap: 16px; /* Espaçamento entre os elementos */
+  border
+}
+
+ul li a {
+  display: flex; /* Faz com que os elementos fiquem em linha */
+  align-items: center; /* Alinha os elementos no centro */
+  justify-content: center; /* Centraliza os elementos */
+  padding: 16px 24px; /* Espaçamento interno onde '16px' será o top e button e '24px' será os lados */
+  
+  background: rgba(255,255, 255, 0.1); /* Cor de fundo */
+  border: 1px solid rgba(255,255,255, 0.5); /* Borda */
+  border-radius: 8px; /* Borda arredondada */
+ 
+  backdrop-filter: blur(4px); /* Filtro de desfoque */
+  -webkit-backdrop-filter:blur(4px); /* Filtro de desfoque */
+
+  text-decoration: none; /* Remove a decoração do link */
+  font-weight: 500; /* Tamanho da fonte */
+
+  transition: background 0.2s; /* Transição de cor de fundo */
+}
+
+/* pseudo-selector */
+ul li a:hover{
+background: rgba(255,255, 255, 0.05); /* Cor de fundo */
+border: 1.5px solid white; /* Borda */
+}
