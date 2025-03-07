@@ -4,13 +4,43 @@
   box-sizing: border-box; /* box-sizing: border-box; é uma propriedade CSS que determina como o tamanho total de um elemento é calculado. */
 }
 
+:root {
+  --text-color: white; /* Cor do texto */
+  --bg-url: url(./assets/assets/bg-mobile.jpg); /* Imagem de fundo */
+  --stroke-color: rgba(255, 255, 255, 0.5); /* Cor da borda */
+  --surface-color: rgba(255, 255, 255, 0.1); /* Cor de fundo */
+  --surface-color-hover: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Cor de fundo ao passar o mouse */
+  --sl-hover: rgba(255, 255, 255, 0.2); /* Cor de fundo ao passar o mouse */
+  --switch-bg-url: url(./assets/assets/moon-stars.svg); /* Imagem de fundo */
+}
+
+.light {
+  --text-color: black; /* Cor do texto */
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg); /* Imagem de fundo */
+  --stroke-color: rgba(0, 0, 0, 0.5); /* Cor da borda */
+  --surface-color: rgba(0, 0, 0, 0.1); /* Cor de fundo */
+  --surface-color-hover: rgba(
+    0,
+    0,
+    0,
+    0.05
+  ); /* Cor de fundo ao passar o mouse */
+  --sl-hover: rgba(0, 0, 0, 0.2); /* Cor de fundo ao passar o mouse */
+  --switch-bg-url: url(./assets/assets/sun.svg); /* Imagem de fundo */
+}
+
 body {
-  background: url(./assets/assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover; /* Imagem de fundo */
 }
 
 body * {
   font-family: "inter", sans-serif;
-  color: white;
+  color: var(--text-color);
 }
 
 #container {
@@ -19,6 +49,7 @@ body * {
   margin: 56px auto 0px; /* Margem */
   padding: 0 24px; /* Espaçamento interno */
 }
+/* Profile */
 
 #profile {
   text-align: center; /*Centraliza o texto*/
@@ -36,13 +67,55 @@ body * {
   margin-top: 8px;
 }
 
+/*botao*/
+
+#botao {
+  position: relative; /* Posição relativa */
+  width: 64px; /* Largura */
+  margin: 4px auto; /* Margem */
+}
+#botao button {
+  width: 32px; /* Largura */
+  height: 32px; /* Altura */
+  background: white var(--switch-bg-url) no-repeat center; /* Imagem de fundo */
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /* Posição absoluta */
+  top: 50%; /* Topo */
+  left: 0; /* Direita */
+  z-index: 1; /* Z-index */
+  transform: translateY(-50%);
+}
+
+.light #botao button {
+  right: 0;
+  left: initial;
+}
+
+#botao span {
+  display: block;
+  width: 64px; /* Largura */
+  height: 24px; /* Altura */
+
+  /* surface-color-dark-mode*/
+  background: var(--surface-color); /* Cor de fundo */
+
+  /* stroke-color-dark-mode */
+
+  border: 1px solid var(--stroke-color); /* Borda */
+  backdrop-filter: blur(4px); /* Filtro de desfoque */
+  -webkit-backdrop-filter: blur(4px); /* Filtro de desfoque */
+  border-radius: 9999px; /* Borda arredondada */
+}
+
 /* Links */
 ul {
   list-style: none; /* Remove a bolinha da lista */
   display: flex; /* Faz com que os elementos fiquem em linha */
   flex-direction: column; /* Faz com que os elementos fiquem em coluna */
   gap: 16px; /* Espaçamento entre os elementos */
-  border
+  padding: 24px 0; /* Espaçamento interno onde '24px' será o top e button */
 }
 
 ul li a {
@@ -50,13 +123,13 @@ ul li a {
   align-items: center; /* Alinha os elementos no centro */
   justify-content: center; /* Centraliza os elementos */
   padding: 16px 24px; /* Espaçamento interno onde '16px' será o top e button e '24px' será os lados */
-  
-  background: rgba(255,255, 255, 0.1); /* Cor de fundo */
-  border: 1px solid rgba(255,255,255, 0.5); /* Borda */
+
+  background: var(--surface-color); /* Cor de fundo */
+  border: 1px solid var(--stroke-color); /* Borda */
   border-radius: 8px; /* Borda arredondada */
- 
+
   backdrop-filter: blur(4px); /* Filtro de desfoque */
-  -webkit-backdrop-filter:blur(4px); /* Filtro de desfoque */
+  -webkit-backdrop-filter: blur(4px); /* Filtro de desfoque */
 
   text-decoration: none; /* Remove a decoração do link */
   font-weight: 500; /* Tamanho da fonte */
@@ -65,7 +138,27 @@ ul li a {
 }
 
 /* pseudo-selector */
-ul li a:hover{
-background: rgba(255,255, 255, 0.05); /* Cor de fundo */
-border: 1.5px solid white; /* Borda */
+ul li a:hover {
+  background: var(--surface-color-hover); /* Cor de fundo */
+  border: 1.5px solid var(--text-color); /* Borda */
+}
+
+#sl {
+  display: flex; /* Faz com que os elementos fiquem em linha */
+  justify-content: space-between; /* Espaçamento entre os elementos */
+  padding: 24px 0; /* Espaçamento interno onde '24px' será o top e  button e 0 os lados */
+  font-size: 40px;
+}
+
+#sl a {
+  display: flex; /* Faz com que os elementos fiquem em linha */
+  align-items: center; /* Alinha os elementos no centro */
+  justify-content: center; /* Centraliza os elementos */
+  padding: 16px; /* Espaçamento interno */
+  transition: background 0.2s; /* Transição de cor de fundo */
+  border-radius: 50%; /* Borda arredondada */
+}
+
+#sl a:hover {
+  background: var(--sl-hover); /* Cor de fundo */
 }
