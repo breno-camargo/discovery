@@ -4,7 +4,7 @@
   box-sizing: border-box; /* box-sizing: border-box; é uma propriedade CSS que determina como o tamanho total de um elemento é calculado. */
 }
 
-:root {
+:root /* pseudo-classe */ {
   --text-color: white; /* Cor do texto */
   --bg-url: url(./assets/assets/bg-mobile.jpg); /* Imagem de fundo */
   --stroke-color: rgba(255, 255, 255, 0.5); /* Cor da borda */
